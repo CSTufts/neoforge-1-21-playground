@@ -1,5 +1,9 @@
 package com.donoraffe.playground;
 
+import com.donoraffe.playground.block.ModBlocks;
+import com.donoraffe.playground.item.ModItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -21,7 +25,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 @Mod(Playground.MOD_ID)
 public class Playground {
     // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "donoraffesplayground";
+    public static final String MOD_ID = "playground";
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -35,6 +39,9 @@ public class Playground {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -46,8 +53,16 @@ public class Playground {
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.BISMUTH);
+            event.accept(ModItems.RAW_BISMUTH);
+        }
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.BISMUTH_BLOCK);
+            event.accept(ModBlocks.BISMUTH_ORE);
+        }
 
     }
 
