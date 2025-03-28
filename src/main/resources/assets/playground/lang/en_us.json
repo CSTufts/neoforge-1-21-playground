@@ -3,5 +3,9 @@
   "item.playground.raw_bismuth": "Raw Bismuth",
 
   "block.playground.bismuth_block": "Block of Bismuth",
-  "block.playground.bismuth_ore": "Block Ore"
+  "block.playground.bismuth_ore": "Bismuth Ore",
+  "block.playground.bismuth_deepslate_ore": "Bismuth Deepslate Ore",
+
+  "creativetab.playground.bismuth_items": "Bismuth Items",
+  "creativetab.playground.bismuth_blocks": "Bismuth Blocks"
 }

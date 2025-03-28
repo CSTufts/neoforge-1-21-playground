@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "playground:bismuth_block",
+    "playground:bismuth_ore",
+    "playground:bismuth_deepslate_ore"
+  ]
+}
